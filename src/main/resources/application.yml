@@ -18,6 +18,9 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user-service/**
+          filters:
+            - AddRequestHeader=user-request, user-request-header2
+            - AddResponseHeader=user-response, user-response-header2
         - id: group-service
           uri: lb://group-service
           predicates:
